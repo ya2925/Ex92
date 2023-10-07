@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".results">
+
+    <ListView
+        android:id="@+id/Lv_series"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
+
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/informationLayout"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Information"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="X1 = "
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</LinearLayout>
