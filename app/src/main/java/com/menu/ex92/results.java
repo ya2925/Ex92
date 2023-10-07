@@ -114,36 +114,6 @@ public class results extends AppCompatActivity implements View.OnCreateContextMe
     }
 
     /**
-     * the onClick method for the ListView, it will show information about the result of the calculation
-     *
-     * @param parent   The AdapterView where the click happened.
-     * @param view     The view within the AdapterView that was clicked (this
-     *                 will be a view provided by the adapter)
-     * @param position The position of the view in the adapter.
-     * @param id       The row id of the item that was clicked.
-     */
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        changeLayoutWeight(informationLayout, 5);
-//        X1.setText("X1 = " + resultA1);
-//        if (mode == 0) {
-//            textDifferenceMultiplier.setText("common difference = " + resultDQ);
-//        } else if (mode == 1) {
-//            textDifferenceMultiplier.setText("common ratio = " + resultDQ);
-//        } else {
-//            textDifferenceMultiplier.setText("error");
-//        }
-//        whereN.setText("n = " + (position + 1));
-//
-//        sumToN = 0;
-//        for (int i = 0; i < position + 1; i++) {
-//            sumToN += seriesNs[i];
-//        }
-//        sumN.setText("Sn = " + sumToN);
-//
-//    }
-
-    /**
      * Change the weight of a given LinearLayout to a given weight
      *
      * @param layout the LinearLayout to change
@@ -155,6 +125,15 @@ public class results extends AppCompatActivity implements View.OnCreateContextMe
         layout.setLayoutParams(params);
     }
 
+    /**
+     * will run when you click on any of the listView items
+     * it will create a context menu and add two opsions to it
+     * @param menu The context menu that is being built
+     * @param v The view for which the context menu is being built
+     * @param menuInfo Extra information about the item for which the
+     *            context menu should be shown. This information will vary
+     *            depending on the class of v.
+     */
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
