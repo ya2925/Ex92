@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please fill in all the fields",Toast.LENGTH_SHORT).show();
             return;
         }
+        if (!isDoubleNum(firstIntense.getText().toString()) || !isDoubleNum(differenceMultiplier.getText().toString())){
+            Toast.makeText(getApplicationContext(),"Please make sure the numbers you entered are a valid numbers",Toast.LENGTH_SHORT).show();
+            return;
+        }
         if(mode == -1){
             Toast.makeText(getApplicationContext(),"Choose Series Type!!",Toast.LENGTH_SHORT).show();
             return;
@@ -77,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
             // add the information to the intent
             res.putExtra("mode",mode);
-            res.putExtra("firstIntense",Integer.parseInt(String.valueOf(firstIntense.getText())));
-            res.putExtra("differenceMultiplier",Integer.parseInt(String.valueOf(differenceMultiplier.getText())));
+            res.putExtra("firstIntense",Double.parseDouble(String.valueOf(firstIntense.getText())));
+            res.putExtra("differenceMultiplier",Double.parseDouble(String.valueOf(differenceMultiplier.getText())));
 
             // start the activity
             startActivity(res);
@@ -90,6 +94,35 @@ public class MainActivity extends AppCompatActivity {
         startActivity(credits);
     }
 
+    /**
+     * this method chack if a given string is a double number
+     * @param str the string to check
+     * @return true if the string is a double number, otherwise false
+     */
+    public static boolean isDoubleNum(String str){
+        if (str == null || str.equals("") || str.isEmpty()){
+            return false;
+        }
+        boolean hasDecimalPoint = false;
+        boolean hasDigit = false;
+        for(int i = 0; i < str.length(); i++){
+            char currentChar = str.charAt(i);
+            if(i==0 && (currentChar == '-' || currentChar == '+')){
+                continue;
+            } else if (currentChar == '.') {
+                if (hasDecimalPoint) {
+                    return false;
+                } else {
+                    hasDecimalPoint = true;
+                }
+            } else if (Character.isDigit(currentChar)) {
+                hasDigit = true;
+            } else {
+                return false;
+            }
+        }
+        return hasDigit;
+    }
 
 
 

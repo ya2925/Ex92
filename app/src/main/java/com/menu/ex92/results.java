@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 /**
  * @author Yanir Aton
  * @version 1.0
@@ -54,8 +56,8 @@ public class results extends AppCompatActivity implements View.OnCreateContextMe
         // get the intent and the data from the intent
         Intent gi = getIntent();
         mode = gi.getIntExtra("mode", -1);
-        resultA1 = gi.getIntExtra("firstIntense", 0);
-        resultDQ = gi.getIntExtra("differenceMultiplier", 0);
+        resultA1 = gi.getDoubleExtra("firstIntense", 0);
+        resultDQ = gi.getDoubleExtra("differenceMultiplier", 0);
 
         // setup the ListView
         seriesListView = (ListView) findViewById(R.id.Lv_series);
@@ -64,6 +66,14 @@ public class results extends AppCompatActivity implements View.OnCreateContextMe
         ArrayAdapter<Double> adp = new ArrayAdapter<Double>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, seriesNs);
         seriesListView.setAdapter(adp);
         registerForContextMenu(seriesListView);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish(); // finish the activity
+            }
+        });
     }
 
 
@@ -169,5 +179,7 @@ public class results extends AppCompatActivity implements View.OnCreateContextMe
 
         return true;
     }
+
+
 
 }
